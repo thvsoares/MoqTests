@@ -14,7 +14,7 @@ namespace Sample.Repository
         {
             if (!_data.Contains(item))
             {
-                item.Id = _data.Max(s => s.Id) + 1;
+                item.Id = _data.Any() ? _data.Max(s => s.Id) + 1 : 1;
                 _data.Add (item);
             }
             return item.Id;
