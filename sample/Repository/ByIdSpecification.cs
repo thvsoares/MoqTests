@@ -3,10 +3,10 @@ using Sample.Model;
 
 namespace Sample.Repository
 {
-    public class ByIdSpecification : ISpecification<IEntity>
+    public class ByIdSpecification<T> : ISpecification<T> where T: IEntity
     {
-        private readonly long _id;
-        public ByIdSpecification(long id) => _id = id;
-        public bool IsSatisfiedBy(IEntity target) => target.Id == _id;
+        public readonly long Id;
+        public ByIdSpecification(long id) => Id = id;
+        public bool IsSatisfiedBy(T target) => target.Id == Id;
     }
 }
