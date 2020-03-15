@@ -1,9 +1,10 @@
 using System;
 using System.Collections.Generic;
+using Sample.Repository;
 
 namespace Sample.Model
 {
-    public class Course
+    public class Course : IEntity
     {
         public long Id { get; set; }
 
