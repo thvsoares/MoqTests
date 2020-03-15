@@ -4,6 +4,6 @@ namespace Sample.Repository
 {
     public interface IEntity
     {
-        long ID { get; set; }
+        long Id { get; set; }
     }
 }

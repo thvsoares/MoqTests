@@ -5,7 +5,8 @@ using Sample.Model;
 
 namespace Sample.Repository
 {
-    public abstract class BaseRepository<T> : IRepository<T> where T: Class, IEntity
+    public abstract class BaseRepository<T> : IRepository<T>
+        where T : Class, IEntity
     {
         protected HashSet<T> _data = new HashSet<T>();
 
@@ -24,8 +25,7 @@ namespace Sample.Repository
             return _data.Where(w => spec.IsSatisfiedBy(w));
         }
 
-        public IEnumerable<TResult>
-        Get<TResult>(ISpecification<T> spec, Func<T, TResult> projection)
+        public IEnumerable<TResult> Get<TResult>(ISpecification<T> spec, Func<T, TResult> projection)
         {
             return Get(spec).Select(s => projection(s));
         }
