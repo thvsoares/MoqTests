@@ -6,7 +6,7 @@ using Sample.Model;
 namespace Sample.Repository
 {
     public abstract class BaseRepository<T> : IRepository<T>
-        where T : Class, IEntity
+        where T : class, IEntity
     {
         protected HashSet<T> _data = new HashSet<T>();
 
