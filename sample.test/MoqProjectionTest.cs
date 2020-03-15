@@ -40,7 +40,7 @@ namespace Sample.Test
                 .Setup(s =>
                     s
                         .Get(It.Is<ByIdSpecification<Course>>(e => e.Id == 1),
-                        It.IsAny<Func<Course, It.IsAnyType>>()))
+                        It.IsAny<Func<Course, object>>()))
                 .Verifiable();
 
             _Subject.Object.Get(new ByIdSpecification<Course>(1), p => new { p.Id, p.Name, CountClasses = p.Classes?.Count() ?? 0});
