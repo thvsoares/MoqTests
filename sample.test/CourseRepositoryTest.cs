@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Linq;
 using NUnit.Framework;
 using Sample.Model;
 using Sample.Repository;
@@ -38,9 +39,14 @@ namespace Sample.Test
         }
 
         [Test]
-        public void Test1()
+        public void AddItem()
         {
-            Assert.Pass();
+            var course = new Course() { Name = "Unit Testing" };
+            _Subject.Add (course);
+            Assert.AreNotEqual(0, course.Id);
+            Assert
+                .AreEqual(3,
+                _Subject.Get(new AllSpecification<Course>()).Count());
         }
     }
 }

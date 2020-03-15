@@ -3,8 +3,8 @@ using Sample.Model;
 
 namespace Sample.Repository
 {
-    public class AllSpecification : ISpecification<IEntity>
+    public class AllSpecification<T> : ISpecification<T> where T: IEntity
     {
-        public bool IsSatisfiedBy(IEntity target) => true;
+        public bool IsSatisfiedBy(T target) => true;
     }
 }
